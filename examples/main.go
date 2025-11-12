@@ -8,7 +8,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/naman-dave/vault-watcher"
+	vaultwatcher "github.com/naman-dave/vault-watcher"
 )
 
 func main() {

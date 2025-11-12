@@ -6,10 +6,10 @@ import (
 
 func TestCalculateHash(t *testing.T) {
 	tests := []struct {
-		name     string
-		input    map[string]interface{}
-		wantErr  bool
-		errMsg   string
+		name    string
+		input   map[string]interface{}
+		wantErr bool
+		errMsg  string
 	}{
 		{
 			name: "simple string values",
@@ -22,18 +22,18 @@ func TestCalculateHash(t *testing.T) {
 		{
 			name: "mixed data types",
 			input: map[string]interface{}{
-				"string":  "value",
-				"int":     42,
-				"float":   3.14,
-				"bool":    true,
-				"array":   []interface{}{"a", "b", "c"},
-				"nested":  map[string]interface{}{"inner": "value"},
+				"string": "value",
+				"int":    42,
+				"float":  3.14,
+				"bool":   true,
+				"array":  []interface{}{"a", "b", "c"},
+				"nested": map[string]interface{}{"inner": "value"},
 			},
 			wantErr: false,
 		},
 		{
-			name: "empty map",
-			input: map[string]interface{}{},
+			name:    "empty map",
+			input:   map[string]interface{}{},
 			wantErr: false,
 		},
 		{
@@ -72,7 +72,7 @@ func TestCalculateHash(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			hash, err := CalculateHash(tt.input)
-			
+
 			if tt.wantErr {
 				if err == nil {
 					t.Errorf("CalculateHash() expected error but got none")

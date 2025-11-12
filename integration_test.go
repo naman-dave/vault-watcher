@@ -1,3 +1,4 @@
+//go:build integration
 // +build integration
 
 package vaultwatcher
@@ -76,7 +77,7 @@ func TestIntegration_WatcherWithRealVault(t *testing.T) {
 
 	currentHash := watcher.GetCurrentHash()
 	t.Logf("Final hash: %s", currentHash)
-	
+
 	if changeCount > 0 {
 		t.Logf("SUCCESS: Detected %d changes during test", changeCount)
 		if currentHash == initialHash {
@@ -151,7 +152,7 @@ func TestIntegration_EnvironmentVariables(t *testing.T) {
 	}
 
 	requiredVars := []string{"VAULT_HOST", "VAULT_PATH", "VAULT_TOKEN"}
-	
+
 	for _, varName := range requiredVars {
 		value := os.Getenv(varName)
 		if value == "" {
@@ -170,7 +171,7 @@ func TestIntegration_ManualVaultTest(t *testing.T) {
 
 	// This test shows how you might set up specific test data in Vault
 	// and then test the watcher behavior
-	
+
 	config, err := LoadVaultConfigFromEnv()
 	if err != nil {
 		t.Skipf("Skipping integration test: %v", err)
@@ -198,7 +199,7 @@ func TestIntegration_ManualVaultTest(t *testing.T) {
 
 	// In a real scenario, you might:
 	// 1. Record initial state
-	// 2. Modify the vault data programmatically  
+	// 2. Modify the vault data programmatically
 	// 3. Wait for change detection
 	// 4. Verify the change was detected
 
@@ -238,7 +239,7 @@ func BenchmarkIntegration_HashCalculation(b *testing.B) {
 	}
 
 	b.ResetTimer()
-	
+
 	// Benchmark hash calculation
 	for i := 0; i < b.N; i++ {
 		_, err := CalculateHash(data)

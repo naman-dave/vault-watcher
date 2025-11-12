@@ -215,7 +215,7 @@ func TestWatcher_StartAlreadyStarted(t *testing.T) {
 	if err == nil {
 		t.Errorf("Start() expected error for already started watcher")
 	}
-	
+
 	expectedError := "watcher is already started"
 	if err.Error() != expectedError {
 		t.Errorf("Start() error = %v, want %v", err.Error(), expectedError)
@@ -231,7 +231,7 @@ func TestWatcher_OnChangeCallback(t *testing.T) {
 
 	callbackCalled := false
 	callbackMutex := sync.Mutex{}
-	
+
 	onChange := func() error {
 		callbackMutex.Lock()
 		callbackCalled = true
@@ -248,7 +248,7 @@ func TestWatcher_OnChangeCallback(t *testing.T) {
 	// Test that callback is called when detecting changes
 	// This would require mocking the vault client more extensively
 	// For now, we test that the callback can be set and called manually
-	
+
 	if err := onChange(); err != nil {
 		t.Errorf("onChange callback failed: %v", err)
 	}
@@ -384,7 +384,7 @@ func TestVaultConfig_Validation(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			_, err := NewWatcher(tt.config, time.Second, func() error { return nil })
-			
+
 			if tt.valid && err != nil {
 				t.Errorf("Expected valid config to not produce error, got: %v", err)
 			}

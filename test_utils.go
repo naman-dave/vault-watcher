@@ -19,12 +19,12 @@ func TestWatcher(t *testing.T, onChange func() error) *Watcher {
 	if onChange == nil {
 		onChange = func() error { return nil }
 	}
-	
+
 	watcher, err := NewWatcher(TestVaultConfig(), 100*time.Millisecond, onChange)
 	if err != nil {
 		t.Fatalf("Failed to create test watcher: %v", err)
 	}
-	
+
 	return watcher
 }
 
@@ -33,12 +33,12 @@ func TestWatcherWithConfig(t *testing.T, config *VaultConfig, interval time.Dura
 	if onChange == nil {
 		onChange = func() error { return nil }
 	}
-	
+
 	watcher, err := NewWatcher(config, interval, onChange)
 	if err != nil {
 		t.Fatalf("Failed to create test watcher with config: %v", err)
 	}
-	
+
 	return watcher
 }
 
@@ -77,11 +77,11 @@ func AssertError(t *testing.T, err error, expectedMsg, context string) {
 // MockVaultData creates test vault data for hash calculations
 func MockVaultData() map[string]interface{} {
 	return map[string]interface{}{
-		"database_url":      "postgres://localhost:5432/testdb",
-		"api_key":          "test-api-key-123",
-		"debug_mode":       true,
-		"max_connections":  10,
-		"timeout_seconds":  30.5,
+		"database_url":    "postgres://localhost:5432/testdb",
+		"api_key":         "test-api-key-123",
+		"debug_mode":      true,
+		"max_connections": 10,
+		"timeout_seconds": 30.5,
 		"features": []interface{}{
 			"feature1",
 			"feature2",
@@ -96,12 +96,12 @@ func MockVaultData() map[string]interface{} {
 // MockVaultDataModified creates modified test vault data
 func MockVaultDataModified() map[string]interface{} {
 	return map[string]interface{}{
-		"database_url":      "postgres://localhost:5432/testdb",
-		"api_key":          "changed-api-key-456", // Changed value
-		"debug_mode":       false,                 // Changed value
-		"max_connections":  20,                    // Changed value
-		"timeout_seconds":  45.0,                  // Changed value
-		"new_feature":      "added",               // New key
+		"database_url":    "postgres://localhost:5432/testdb",
+		"api_key":         "changed-api-key-456", // Changed value
+		"debug_mode":      false,                 // Changed value
+		"max_connections": 20,                    // Changed value
+		"timeout_seconds": 45.0,                  // Changed value
+		"new_feature":     "added",               // New key
 		"features": []interface{}{
 			"feature1",
 			"feature2",
