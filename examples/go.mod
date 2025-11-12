@@ -1,8 +1,8 @@
-module github.com/naman-dave/vault-watcher
+module examples
 
 go 1.23.0
 
-require github.com/hashicorp/vault/api v1.22.0
+require github.com/naman-dave/vault-watcher v0.0.0
 
 require (
 	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
@@ -16,6 +16,7 @@ require (
 	github.com/hashicorp/go-secure-stdlib/strutil v0.1.2 // indirect
 	github.com/hashicorp/go-sockaddr v1.0.7 // indirect
 	github.com/hashicorp/hcl v1.0.1-vault-7 // indirect
+	github.com/hashicorp/vault/api v1.22.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
@@ -24,3 +25,5 @@ require (
 	golang.org/x/text v0.27.0 // indirect
 	golang.org/x/time v0.12.0 // indirect
 )
+
+replace github.com/naman-dave/vault-watcher => ../

@@ -128,6 +128,59 @@ When using `LoadVaultConfigFromEnv()`, the following environment variables are r
 
 This approach ensures deterministic hashing and efficient comparison.
 
+## Testing
+
+This package includes comprehensive unit tests and integration tests.
+
+### Running Unit Tests
+
+```bash
+# Run all unit tests
+go test -v
+
+# Run tests with coverage
+go test -v -cover
+
+# Generate coverage report
+go test -coverprofile=coverage.out
+go tool cover -html=coverage.out -o coverage.html
+```
+
+### Running Integration Tests
+
+Integration tests require a running Vault instance:
+
+```bash
+# Start Vault dev server
+vault server -dev
+
+# Set environment variables
+export VAULT_ADDR='http://127.0.0.1:8200'
+export VAULT_HOST='http://127.0.0.1:8200'
+export VAULT_PATH='secret/test'
+export VAULT_TOKEN='<your-dev-token>'
+
+# Create test secret
+vault kv put secret/test key1=value1 key2=value2
+
+# Run integration tests
+go test -tags=integration -v
+
+# To test change detection, modify the secret while tests are running:
+vault kv patch secret/test key1=modified_value
+```
+
+### Test Coverage
+
+The test suite covers:
+- ✅ Hash calculation with various data types
+- ✅ Hash consistency and change detection
+- ✅ Environment variable loading
+- ✅ Watcher creation and validation
+- ✅ Concurrent access safety
+- ✅ Error handling scenarios
+- ✅ Integration with real Vault instances
+
 ## Thread Safety
 
 The `Watcher` struct is thread-safe and can be used concurrently. All internal state is protected by mutexes.

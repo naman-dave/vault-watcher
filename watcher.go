@@ -1,3 +1,38 @@
+// Package vaultwatcher provides functionality for monitoring HashiCorp Vault paths for changes.
+//
+// The package uses SHA256 hash comparison to efficiently detect when variables in Vault
+// have changed, including when new variables are added or existing ones are modified.
+//
+// Key features:
+//   - Hash-based change detection using SHA256
+//   - Automatic detection of new, modified, and removed variables
+//   - Thread-safe implementation with proper synchronization
+//   - Configurable polling intervals
+//   - Support for both KV v1 and KV v2 secret engines
+//   - Callback mechanism for custom change handling
+//
+// Basic usage:
+//
+//	config := &vaultwatcher.VaultConfig{
+//		Host:  "https://vault.example.com",
+//		Path:  "kv/data/myapp/config",
+//		Token: "your-vault-token",
+//	}
+//
+//	onChange := func() error {
+//		fmt.Println("Configuration changed!")
+//		return nil
+//	}
+//
+//	watcher, err := vaultwatcher.NewWatcher(config, 30*time.Second, onChange)
+//	if err != nil {
+//		panic(err)
+//	}
+//
+//	if err := watcher.Start(); err != nil {
+//		panic(err)
+//	}
+//	defer watcher.Stop()
 package vaultwatcher
 
 import (
