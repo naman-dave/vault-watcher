@@ -1,5 +1,10 @@
 # Vault Watcher
 
+[![CI](https://github.com/naman-dave/vault-watcher/actions/workflows/ci.yml/badge.svg)](https://github.com/naman-dave/vault-watcher/actions/workflows/ci.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/naman-dave/vault-watcher)](https://goreportcard.com/report/github.com/naman-dave/vault-watcher)
+[![GoDoc](https://godoc.org/github.com/naman-dave/vault-watcher?status.svg)](https://godoc.org/github.com/naman-dave/vault-watcher)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A reusable Go library for monitoring HashiCorp Vault paths for changes. The library uses hash-based comparison to efficiently detect when variables in Vault have changed, including when new variables are added or existing ones are modified.
 
 ## Features

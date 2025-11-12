@@ -12,7 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated GitHub Actions workflow with correct action versions
 - Fixed Vault Docker image reference in CI
 - Updated Go version matrix to test with 1.21.x, 1.22.x, 1.23.x
-- Replaced problematic gosec action with direct installation
+- Removed problematic security scanner and replaced with staticcheck
+- Added proper CI permissions and error handling
 - Temporarily disabled integration tests until proper Vault setup
 
 ### Added
