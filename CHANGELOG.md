@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fixed Go version format in go.mod (1.23.0 -> 1.23)
+- Updated GitHub Actions workflow with correct action versions
+- Fixed Vault Docker image reference in CI
+- Updated Go version matrix to test with 1.21.x, 1.22.x, 1.23.x
+- Replaced problematic gosec action with direct installation
+- Temporarily disabled integration tests until proper Vault setup
+
 ### Added
 - Initial release of vault-watcher
 - Core watcher functionality for monitoring Vault paths

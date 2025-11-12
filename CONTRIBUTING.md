@@ -6,7 +6,7 @@ Thank you for your interest in contributing to Vault Watcher! This document prov
 
 ### Prerequisites
 
-- Go 1.20 or later
+- Go 1.21 or later
 - Git
 - HashiCorp Vault (for integration tests)
 
